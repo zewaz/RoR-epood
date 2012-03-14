@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RoREpood</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <title>Awsome Veebipood</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <div id="header">
+    <h1><a href="/">ÜLIAWSOME VEEBIPOOD</a><h1>
+    <p>MTAT.03.267 - kevad 2012</p>
+  </div>
+  <div id="navigator">
+  	<a href="/">Avaleht</a>
+  	<a href="/">Toodete otsing</a>
+  	<a href="/contact">Kontakt</a>
+  	<a href="/about">Meist</a>
+  	  </div>
+  <div id="main">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
