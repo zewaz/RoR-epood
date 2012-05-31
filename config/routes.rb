@@ -1,4 +1,8 @@
 RoREpood::Application.routes.draw do
+  get "site/about"
+
+  get "site/contact"
+
   resources :items
 
   # The priority is based upon order of creation:
