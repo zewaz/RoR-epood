@@ -65,4 +65,7 @@ RoREpood::Application.routes.draw do
 
   resources :about
   match '/about' => 'about#index'  
+  
+  resources :contacts
+  match '/contacts' => 'contacts#index'
 end
