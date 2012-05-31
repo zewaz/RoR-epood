@@ -1,4 +1,8 @@
 RoREpood::Application.routes.draw do
+  get "users/new"
+
+  resources :users
+
   get "site/about"
 
   get "site/contact"
