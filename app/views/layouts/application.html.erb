@@ -1,25 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Awsome Veebipood</title>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Items: <%= controller.action_name %></title>
+  <!--<%= stylesheet_link_tag 'default' %>-->
+
+  <!--<title>Awsome Veebipood</title>-->
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="header">
-    <h1><a href="/">ÜLIAWSOME VEEBIPOOD</a><h1>
-    <p>MTAT.03.267 - kevad 2012</p>
-  </div>
-  <div id="navigator">
-  	<a href="/">Avaleht</a>
-  	<a href="/">Toodete otsing</a>
-  	<a href="/contact">Kontakt</a>
-  	<a href="/about">Meist</a>
-  	  </div>
-  <div id="main">
-    <%= yield %>
-  </div>
-
+  <div id="page">
+      <div id="header">
+         <h1><a href="/">ÜLIAWSOME VEEBIPOOD</a><h1>
+         <p>MTAT.03.267 - kevad 2012</p>
+      </div>
+      <div id="nav">
+        <div style="float:left;text-align:left">
+		
+          <%= link_to_unless_current "Avaleht",		:controller => "items", 
+                                                	:action => "index" %> |
+          <%= link_to_unless_current "Toodete otsing",	:controller => "products",
+							:action => "index" %> |
+          <%= link_to_unless_current "Meist",		:controller => "site", 
+                                                 	:action => "about" %> |
+          <%= link_to_unless_current "Kontakt",	:controller => "site", 
+                                                 	:action => "contact" %>
+        </div>
+        <div style="text-align:right">
+        
+		  <%= link_to_unless_current "Ostukorv",  :controller => "cart", 
+                                                 :action => "index" %> | 
+          <% unless session[:login] %>
+            <%= link_to_unless_current "Admin", :controller => "user", 
+                                                   :action => "admin_login" %>
+          <% else %>
+            <%= link_to_unless_current "Logi väöja", :controller => "user", 
+                                                    :action => "logout" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div id="main"> <!-- <div id="content"> -->
+       <%= yield %>
+    </div>
 </body>
 </html>
