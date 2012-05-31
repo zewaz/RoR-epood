@@ -1,0 +1,39 @@
+/* Catalog */
+table.catalog
+{
+	border-collapse:collapse;
+}
+.catalog td
+{
+	padding: 8px 8px 8px 8px;
+	vertical-align:top;
+	margin-bottom: 32px;
+	border-bottom: 1px maroon solid;
+}
+.catalog img
+{
+	border: 0;
+	width:120px;
+}
+.title
+{
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 16px;
+}
+.description
+{
+	margin-bottom: 16px;
+}
+.links
+{
+	float: left; 
+	text-align: left;
+}
+.price
+{
+	color: maroon;
+	font-weight: 1800;
+	font-size: 14pt;
+	text-align:right;
+}
