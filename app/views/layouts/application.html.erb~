@@ -3,10 +3,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Items: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'default' %>
+  <!--<%= stylesheet_link_tag 'default' %>-->
 
   <!--<title>Awsome Veebipood</title>-->
-  <!--<%= stylesheet_link_tag "application", :media => "all" %>-->
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
