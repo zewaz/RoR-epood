@@ -19,13 +19,13 @@
       <div id="nav">
         <div style="float:left;text-align:left">
 		
-          <%= link_to_unless_current "Avaleht",		:controller => "items", 
+          <%= link_to_unless_current "Avaleht",		:controller => "static", 
                                                 	:action => "index" %> |
-          <%= link_to_unless_current "Toodete otsing",	:controller => "products",
+          <%= link_to_unless_current "Toodete otsing",	:controller => "items",
 							:action => "index" %> |
-          <%= link_to_unless_current "Meist",		:controller => "site", 
-                                                 	:action => "about" %> |
-          <%= link_to_unless_current "Kontakt",	:controller => "site", 
+          <%= link_to_unless_current "Meist",		:controller => "about", 
+                                                 	:action => "index" %> |
+          <%= link_to_unless_current "Kontakt",		:controller => "site", 
                                                  	:action => "contact" %>
         </div>
         <div style="text-align:right">
