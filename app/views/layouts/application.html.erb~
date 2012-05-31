@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Items: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'default' %>
+
+  <!--<title>Awsome Veebipood</title>-->
+  <!--<%= stylesheet_link_tag "application", :media => "all" %>-->
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="page">
+      <div id="header">
+         <h1><a href="/">ÜLIAWSOME VEEBIPOOD</a><h1>
+         <p>MTAT.03.267 - kevad 2012</p>
+      </div>
+      <div id="nav">
+        <div style="float:left;text-align:left">
+		
+          <%= link_to_unless_current "Avaleht",		:controller => "static", 
+                                                	:action => "index" %> |
+          <%= link_to_unless_current "Toodete otsing",	:controller => "items",
+							:action => "index" %> |
+          <%= link_to_unless_current "Meist",		:controller => "about", 
+                                                 	:action => "index" %> |
+          <%= link_to_unless_current "Kontakt",		:controller => "contacts", 
+                                                 	:action => "index" %>
+        </div>
+        <div style="text-align:right">
+        
+		  <%= link_to_unless_current "Ostukorv",  :controller => "cart", 
+                                                 :action => "index" %> | 
+          <% unless session[:login] %>
+            <%= link_to_unless_current "Admin", :controller => "user", 
+                                                   :action => "admin_login" %>
+          <% else %>
+            <%= link_to_unless_current "Logi välja", :controller => "user", 
+                                                    :action => "logout" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div id="main"> <!-- <div id="content"> -->
+       <%= yield %>
+    </div>
+</body>
+</html>
