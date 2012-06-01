@@ -1,19 +1,17 @@
-<!-- mis kuradi jama see on -->
-
 <!DOCTYPE html>
 <html>
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Items: <%= controller.action_name %></title>
-  <!--<%= stylesheet_link_tag 'default' %>-->
-
-  <!--<title>Awsome Veebipood</title>-->
-  <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div id="page">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>Items: <%= controller.action_name %></title>
+    <!--<%= stylesheet_link_tag 'default' %>-->
+    
+    <!--<title>Awsome Veebipood</title>-->
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="page">
       <div id="header">
          <h1><a href="/">ÜLIAWSOME VEEBIPOOD</a><h1>
          <p>MTAT.03.267 - kevad 2012</p>
@@ -34,6 +32,7 @@
         
 		  <%= link_to_unless_current "Ostukorv",  :controller => "cart", 
                                                  :action => "index" %> | 
+                  <%= link_to_unless_current "Loo kasutaja", signup_path %> |
           <% unless session[:login] %>
             <%= link_to_unless_current "Admin", :controller => "user", 
                                                    :action => "admin_login" %>

@@ -72,5 +72,4 @@ RoREpood::Application.routes.draw do
   
   resources :contacts
   match '/contacts' => 'contacts#index'
-  match '/signup',  to: 'users#new'
 end
