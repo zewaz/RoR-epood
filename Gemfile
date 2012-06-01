@@ -26,8 +26,13 @@ group :production do
   gem 'pg', '0.12.2'
 end
 
-group :development do
+group :test do
+  gem 'capybara', '1.1.2'
+end
+
+group :development, :test do
   gem 'annotate', '~> 2.4.1.beta'
+  gem 'rspec-rails', '2.10.0'
 end
 
 # To use ActiveModel has_secure_password
