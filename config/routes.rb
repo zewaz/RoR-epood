@@ -1,13 +1,26 @@
 RoREpood::Application.routes.draw do
-  get "users/new"
-
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+
+  match '/signup',  to: 'users#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+
+  get "users/new"
 
   get "site/about"
 
   get "site/contact"
 
   resources :items
+
+  root to: 'static#index'
+
+  resources :about
+  match '/about' => 'about#index'  
+  
+  resources :contacts
+  match '/contacts' => 'contacts#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -65,12 +78,4 @@ RoREpood::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-  root :to => 'static#index'
-
-  resources :about
-  match '/about' => 'about#index'  
-  
-  resources :contacts
-  match '/contacts' => 'contacts#index'
-  match '/signup',  to: 'users#new'
 end
