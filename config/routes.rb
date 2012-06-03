@@ -1,4 +1,6 @@
 RoREpood::Application.routes.draw do
+  get "cart/index"
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
