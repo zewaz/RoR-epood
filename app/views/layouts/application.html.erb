@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-    <title>Items: <%= controller.action_name %></title>
+    <title>ÜLIAWSOME VEEBIPOOD | <%= yield(:title) %></title>
     <%= stylesheet_link_tag 'default' %>
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
@@ -32,7 +32,7 @@
                                                  :action => "index" %> | 
                   <%= link_to_unless_current "Loo kasutaja", signup_path %> |
                   <% if signed_in? %>
-                    <%= link_to "Logi välja", signout_path, method: "delete" %> |
+                    <%= link_to "Logi valja", signout_path, method: "delete" %> |
                   <% else %>
                     <%= link_to "Logi sisse", signin_path %> |
                   <% end %>
