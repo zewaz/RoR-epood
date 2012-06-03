@@ -1,3 +1,10 @@
+<h1>Editing user</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', users_path %>
+
 <% provide(:title, "Muuda kontot") %> 
 <h1>Uuenda kontot</h1>
 
