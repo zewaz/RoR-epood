@@ -60,7 +60,7 @@ describe "Authentication" do
           visit edit_user_path(user)
           fill_in "Email",    with: user.email
           fill_in "Password", with: user.password
-          click_button "Logi sisse"
+          click_button "Sign in"
         end
 
         describe "after signing in" do

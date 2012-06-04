@@ -33,12 +33,11 @@
                   <% if signed_in? %>
                     <%= link_to "Logi valja", signout_path, method: "delete" %> |
                     <%= link_to "Konto", current_user %> |
-                    <%= link_to "Seaded", edit_user_path(current_user) %> |
+                    <%= link_to "Seaded", edit_user_path(current_user) %>
                   <% else %>
                     <%= link_to_unless_current "Loo kasutaja", signup_path %> |
-                    <%= link_to "Logi sisse", signin_path %> |
+                    <%= link_to "Logi sisse", signin_path %>
                   <% end %>
-                  <%= link_to_unless_current "Admin", :controller => "user", :action => "admin_login" %>
         </div>
       </div>
     </div>
