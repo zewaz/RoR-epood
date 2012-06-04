@@ -5,7 +5,7 @@
   <tr>
     <td>
         <div class="image">
-            <%= link_to (image_tag item.image_url), image_tag item.image_url %>
+            <%= link_to (image_tag item.image_url), item %>
         </div>
     </td>
     <td>
@@ -16,8 +16,12 @@
             <%=h item.description %>
         </div>
         <div class="links">
-            <%= link_to 'Edit', edit_item_path(item) %> |
-            <%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %>
+        	<% if session[:login] == 1 %>
+	            <%= link_to 'Edit', edit_item_path(item) %> |
+	            <%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %>
+	        <% else %>
+                <%= button_to "Add to Cart", :controller => :Cart, :action => :add, :id => item %>
+            <% end %>
         </div>
         <div class="price">
             <%= number_to_currency(item.price, :unit => "€") %>
@@ -27,4 +31,8 @@
 <% end %>
 </table>
 
-<p><%= link_to 'New item', new_item_path %></p>
+  <% if !current_user?(nil) %>
+    <% if current_user.admin? %>
+      <p><%= link_to 'New item', new_item_path %>|</p>
+    <% end %>
+  <% end %>
